@@ -1,0 +1,21 @@
+services:
+  pdns-recursor:
+    image: powerdns/pdns-recursor-53:5.3.5
+    container_name: pdns-recursor
+    ports:
+      - "5351:53/udp"
+      - "5351:53/tcp"
+    volumes:
+      - ./recursor.yml:/etc/powerdns/recursor.yml:ro
+    restart: unless-stopped
+
+  dns-tools:
+    image: busybox:latest
+    container_name: dns-tools
+    entrypoint: ["sh"]
+    stdin_open: true
+    tty: true
+    depends_on:
+      - pdns-recursor
+    networks:
+      default: {}
