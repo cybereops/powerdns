@@ -1,0 +1,21 @@
+dnssec:
+  validation: off
+
+incoming:
+  listen:
+    - 0.0.0.0:53
+  allow_from:
+    - 0.0.0.0/0
+
+logging:
+  loglevel: 6
+  common_errors: true
+  trace: true
+
+
+recursor:
+  forward_zones_recurse:
+    - zone: "."
+      forwarders:
+        - 8.8.8.8
+        - 8.8.4.4

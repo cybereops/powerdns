@@ -1,0 +1,25 @@
+➜  DNS docker exec -it dns-tools nslookup -type=MX gmail.com pdns-recursor
+Server:		pdns-recursor
+Address:	172.18.0.2:53
+
+Non-authoritative answer:
+gmail.com	mail exchanger = 5 gmail-smtp-in.l.google.com
+gmail.com	mail exchanger = 30 alt3.gmail-smtp-in.l.google.com
+gmail.com	mail exchanger = 20 alt2.gmail-smtp-in.l.google.com
+gmail.com	mail exchanger = 10 alt1.gmail-smtp-in.l.google.com
+gmail.com	mail exchanger = 40 alt4.gmail-smtp-in.l.google.com
+
+➜  DNS docker exec -it dns-tools nslookup -type=SOA gmail.com pdns-recursor
+Server:		pdns-recursor
+Address:	172.18.0.2:53
+
+Non-authoritative answer:
+gmail.com
+	origin = ns1.google.com
+	mail addr = dns-admin.google.com
+	serial = 873978624
+	refresh = 900
+	retry = 900
+	expire = 1800
+	minimum = 60
+
