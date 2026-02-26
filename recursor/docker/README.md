@@ -138,9 +138,9 @@ Consulta de registro MX:
 ```bash
 docker exec -it dns-tools nslookup -type=MX gmail.com pdns-recursor
 ```
-
+Consulta de registro SOA:
 ```bash
-docker exec -it dns-tools nslookup -type=MX gmail.com pdns-recursor
+docker exec -it dns-tools nslookup -type=SOA gmail.com pdns-recursor
 ```
 
 Consulta reversa (PTR):
